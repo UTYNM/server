@@ -1,0 +1,106 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  gender    Gender
+  birthdate DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  blogs            Blog[]
+  Activities       Activity[]
+  TimeManagements  TimeManagement[]
+  FinancialRecords FinancialRecord[]
+  DietPlans        DietPlan[]
+
+  @@map("users")
+}
+
+enum Gender {
+  male
+  female
+}
+
+model Blog {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  image     String?
+  authorId  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  author User @relation(fields: [authorId], references: [id])
+
+  @@map("blogs")
+}
+
+model Activity {
+  id        Int      @id @default(autoincrement())
+  title     String
+  goal      String
+  authorId  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  author User @relation(fields: [authorId], references: [id])
+
+  @@map("activities")
+}
+
+model TimeManagement {
+  id        Int      @id @default(autoincrement())
+  task      String
+  deadline  DateTime
+  priority  String
+  authorId  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  author User @relation(fields: [authorId], references: [id])
+
+  @@map("time_managements")
+}
+
+model FinancialRecord {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  category    String
+  amount      Int
+  date        DateTime
+  authorId    Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  author User @relation(fields: [authorId], references: [id])
+
+  @@map("financial_records")
+}
+
+model DietPlan {
+  id        Int      @id @default(autoincrement())
+  mealType  String
+  foodItem  String
+  calories  Int
+  authorId  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  author User @relation(fields: [authorId], references: [id])
+
+  @@map("diet_plans")
+}
