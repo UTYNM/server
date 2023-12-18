@@ -1,8 +1,8 @@
 import { PrismaClient } from '@prisma/client';
 import { format, parse } from 'date-fns';
+
 const prisma = new PrismaClient();
 
-// Create a new TimeManagement entry
 const create = async (req, res) => {
     const { title, description, category, amount, date } = req.body;
     const { id: authorId, name } = req.user;
@@ -39,7 +39,6 @@ const create = async (req, res) => {
     }
 };
 
-// Get all TimeManagement entries
 const get = async (req, res) => {
     try {
         const financialRecord = await prisma.financialRecord.findMany({
@@ -69,7 +68,6 @@ const get = async (req, res) => {
     }
 };
 
-// Get a single TimeManagement entry by id
 const getId = async (req, res) => {
     const { id } = req.params;
     try {
@@ -102,9 +100,6 @@ const getId = async (req, res) => {
     }
 };
 
-
-
-// Update a TimeManagement entry by id
 const update = async (req, res) => {
     const { id } = req.params;
     const { title, description, category, amount, date } = req.body;
@@ -133,7 +128,6 @@ const update = async (req, res) => {
     }
 };
 
-// Delete a TimeManagement entry by id
 const remove = async (req, res) => {
     const { id } = req.params;
     try {

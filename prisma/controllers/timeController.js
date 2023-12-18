@@ -1,11 +1,9 @@
-// Import the Prisma client
 import { PrismaClient } from '@prisma/client';
 import { format, parse } from 'date-fns';
 
-// Create an instance of the Prisma client
+
 const prisma = new PrismaClient();
 
-// Create a new time
 const create = async (req, res) => {
 
     const { task, deadline, priority } = req.body;
@@ -36,7 +34,6 @@ const create = async (req, res) => {
     }
 };
 
-// Get all times
 const get = async (req, res) => {
     try {
         const timeManagement = await prisma.timeManagement.findMany({
@@ -64,7 +61,6 @@ const get = async (req, res) => {
     }
 };
 
-// Get a single time by ID
 const getId = async (req, res) => {
     const { id } = req.params;
     try {
@@ -101,7 +97,6 @@ const getId = async (req, res) => {
     }
 };
 
-// Update a time by ID
 const update = async (req, res) => {
     const { id } = req.params;
     const { task, deadline, priority } = req.body;
@@ -129,7 +124,6 @@ const update = async (req, res) => {
     }
 };
 
-// Delete a time by ID
 const remove = async (req, res) => {
     try {
         const { id } = req.params;

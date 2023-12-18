@@ -1,9 +1,7 @@
-// Import the necessary dependencies
 import { PrismaClient } from '@prisma/client';
-// Create an instance of the Prisma client
+
 const prisma = new PrismaClient();
 
-// Create a new dietPlan
 const create = async (req, res) => {
     const { mealType, foodItem, calories } = req.body;
     const { id: authorId, name } = req.user;
@@ -35,7 +33,6 @@ const create = async (req, res) => {
     }
 };
 
-// Get all dietPlans
 const get = async (req, res) => {
     try {
         const dietPlan = await prisma.dietPlan.findMany({
@@ -62,7 +59,6 @@ const get = async (req, res) => {
     }
 };
 
-// Get a single dietPlan by ID
 const getId = async (req, res) => {
     const { id } = req.params;
     try {
@@ -94,7 +90,7 @@ const getId = async (req, res) => {
     }
 };
 
-// Update a dietPlan by ID
+
 const update = async (req, res) => {
     const { id } = req.params;
     const { mealType, foodItem, calories } = req.body;
@@ -123,7 +119,7 @@ const update = async (req, res) => {
     }
 };
 
-// Delete a dietPlan by ID
+
 const remove = async (req, res) => {
     try {
         const { id } = req.params;

@@ -30,7 +30,6 @@ const get = async (req, res) => {
 };
 const getId = async (req, res) => {
     const { id } = req.params;
-    // const blogId = parseInt(id, 10);
     try {
         const blog = await prisma.blog.findUnique({
             where: {
@@ -88,44 +87,6 @@ const create = async (req, res) => {
     }
 };
 
-// const remove = async (req, res) => {
-//     const { id } = req.params;
-
-//     try {
-//         const isBlogAvailable = await prisma.blog.findUnique({
-//             where: {
-//                 id: parseInt(id),
-//             },
-//         });
-
-//         if (!isBlogAvailable) {
-//             return res.status(404).json({
-//                 success: false,
-//                 message: 'Blog not found',
-//             });
-//         }
-
-//         const blog = await prisma.blog.delete({
-//             where: {
-//                 id: parseInt(id),
-//             },
-//         });
-
-//         res.status(200).json({
-//             success: true,
-//             message: 'Blog deleted successfully',
-//             data: blog,
-//         });
-//     } catch (error) {
-//         console.error('Error:', error);
-//         res.status(500).json({
-//             success: false,
-//             message: error.message || 'Internal server error',
-//         });
-//     }
-// };
-
-
 const update = async (req, res) => {
     const { id } = req.params;
     const { title, content, image } = req.body;
@@ -154,7 +115,6 @@ const update = async (req, res) => {
         });
     }
 };
-
 
 const remove = async (req, res) => {
     try {

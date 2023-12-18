@@ -1,10 +1,7 @@
-// Import the Prisma client
 import { PrismaClient } from '@prisma/client';
 
-// Create an instance of the Prisma client
 const prisma = new PrismaClient();
 
-// Create a new activity
 const create = async (req, res) => {
     const { title, goal } = req.body;
     const { id: authorId, name } = req.user;
@@ -32,7 +29,6 @@ const create = async (req, res) => {
     }
 };
 
-// Get all activities
 const get = async (req, res) => {
     try {
         const activities = await prisma.activity.findMany({
@@ -59,7 +55,7 @@ const get = async (req, res) => {
     }
 };
 
-// Get a single activity by ID
+
 const getId = async (req, res) => {
     try {
         const { id } = req.params;
@@ -90,7 +86,7 @@ const getId = async (req, res) => {
     }
 };
 
-// Update an activity
+
 const update = async (req, res) => {
     const { id } = req.params;
     const { title, goal } = req.body;
@@ -117,7 +113,6 @@ const update = async (req, res) => {
     }
 };
 
-// Delete an activity
 const remove = async (req, res) => {
     try {
         const { id } = req.params;
