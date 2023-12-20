@@ -26,8 +26,8 @@ const sendReminderEmail = async (task, email) => {
 };
 
 const scheduleReminders = () => {
-    // Memulai schedule untuk setiap jam 00
-    cron.schedule('* * * * *', async () => {
+    // Memulai schedule untuk setiap jam 00:00 atau mengirim setiap jam 00:00
+    cron.schedule('0 0 * * *', async () => {
         try {
             const today = new Date();
             const tomorrow = new Date(today);
@@ -61,7 +61,7 @@ const scheduleReminders = () => {
                     const formattedDeadline = format(deadline, 'dd-MM-yyyy');
                     console.log(`Sending reminder for task: ${task}, Deadline: ${formattedDeadline}, Email: ${email}`);
                 }
-                
+
                 sendReminderEmail(task, email);
             });
         } catch (error) {
