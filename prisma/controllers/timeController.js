@@ -17,6 +17,7 @@ const create = async (req, res) => {
                 authorId,
             },
         });
+
         res.status(201).json({
             success: true,
             data: {
@@ -143,5 +144,66 @@ const remove = async (req, res) => {
         });
     }
 };
+
+// const scheduleReminder = async (timeManagement) => {
+//     const daysUntilDeadline = differenceInDays(timeManagement.deadline, new Date());
+
+//     // Check if the deadline is within a certain number of days (e.g., 1 day) and send a reminder
+//     if (daysUntilDeadline === 1) {
+//         sendReminderEmail(timeManagement);
+//     }
+// };
+
+// const scheduleReminder = async (timeManagement) => {
+//     const transporter = nodemailer.createTransport({
+//         // Configure your email service
+//         service: 'gmail',
+//         auth: {
+//             user: 'anumuti021@gmail.com',
+//             pass: 'anum12345',
+//         },
+//     });
+
+//     const mailOptions = {
+//         from: 'anumuti021@gmail.com',
+//         to: 'utianum021@example.com',
+//         subject: `Reminder: Deadline for Task - ${timeManagement.task}`,
+//         text: `Hello,\n\nThis is a reminder that the deadline for the task "${timeManagement.task}" is tomorrow (${format(timeManagement.deadline, 'dd-MM-yyyy')}).\n\nBest regards,\nYour App`,
+//     };
+
+//     transporter.sendMail(mailOptions, (error, info) => {
+//         if (error) {
+//             console.error('Error sending reminder email:', error);
+//         } else {
+//             console.log('Reminder email sent:', info.response);
+//         }
+//     });
+// };
+
+// Buat transporter untuk mengirim email
+// const transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     auth: {
+//         user: 'anumuti021@gmail.com', // Ganti dengan alamat email Gmail Anda
+//         pass: 'ilwm hjch chpz qlkk' // Ganti dengan kata sandi email Gmail Anda
+//     }
+// });
+
+// // Konfigurasi email yang akan dikirim
+// const mailOptions = {
+//     from: 'anumuti021@gmail.com', // Ganti dengan alamat email Anda
+//     to: 'utianum021@gmail.com', // Ganti dengan alamat email penerima
+//     subject: 'Subject of the email',
+//     text: 'dari timecontroller'
+// };
+
+// // Kirim email
+// transporter.sendMail(mailOptions, (error, info) => {
+//     if (error) {
+//         console.error('Error:', error);
+//     } else {
+//         console.log('Email sent:', info.response);
+//     }
+// });
 
 export default { create, get, getId, update, remove };
