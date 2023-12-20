@@ -61,8 +61,7 @@ const scheduleReminders = () => {
                     const formattedDeadline = format(deadline, 'dd-MM-yyyy');
                     console.log(`Sending reminder for task: ${task}, Deadline: ${formattedDeadline}, Email: ${email}`);
                 }
-
-
+                
                 sendReminderEmail(task, email);
             });
         } catch (error) {
