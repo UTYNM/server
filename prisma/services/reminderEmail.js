@@ -3,7 +3,6 @@ import cron from 'node-cron';
 import { format } from 'date-fns';
 import { PrismaClient } from '@prisma/client';
 
-
 const prisma = new PrismaClient();
 
 const transporter = nodemailer.createTransport({
@@ -53,7 +52,7 @@ const scheduleReminders = () => {
                 const { task, deadline, author } = timeManagement;
                 const { email } = author;
 
-                // Periksa apakah tenggat waktunya dalam 24 jam ke depan jika ya email akan dikirimkan 
+                // Memeriksa apakah tenggat waktunya dalam 24 jam ke depan jika ya email akan dikirimkan 
                 const timeDifference = deadline.getTime() - today.getTime();
                 const hoursDifference = timeDifference / (1000 * 3600);
 
