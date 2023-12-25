@@ -4,8 +4,8 @@ import { authenticateToken } from '../middlewares/authMiddleware.js';
 
 const router = express.Router();
 
-router.get('/', timeController.get);
-router.get('/:id', timeController.getId);
+router.get('/', authenticateToken, timeController.get);
+router.get('/:id',authenticateToken, timeController.getId);
 router.post('/', authenticateToken, timeController.create);
 router.put('/:id', authenticateToken, timeController.update);
 router.delete('/:id', authenticateToken, timeController.remove);
