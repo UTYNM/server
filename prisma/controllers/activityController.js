@@ -31,7 +31,11 @@ const create = async (req, res) => {
 
 const get = async (req, res) => {
     try {
+        const { id: authorId } = req.user;
         const activities = await prisma.activity.findMany({
+            where: {
+                authorId,
+            },
             select: {
                 id: true,
                 title: true,
@@ -59,9 +63,11 @@ const get = async (req, res) => {
 const getId = async (req, res) => {
     try {
         const { id } = req.params;
+        const { id: authorId } = req.user;
         const activity = await prisma.activity.findUnique({
             where: {
                 id: parseInt(id),
+                authorId,
             },
             select: {
                 id: true,
