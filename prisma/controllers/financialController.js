@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { format, parse } from 'date-fns';
+import { format, parse, parseISO } from 'date-fns';
 
 const prisma = new PrismaClient();
 
@@ -8,7 +8,6 @@ const create = async (req, res) => {
     const { id: authorId, name } = req.user;
 
     try {
-
         const financialRecord = await prisma.financialRecord.create({
             data: {
                 title,
@@ -34,14 +33,18 @@ const create = async (req, res) => {
     } catch (error) {
         res.status(500).json({
             success: false,
-           error: 'Failed to create financial record'
+          message: error.message
         });
     }
 };
 
 const get = async (req, res) => {
     try {
+        const { id: authorId } = req.user;
         const financialRecord = await prisma.financialRecord.findMany({
+            where: {
+                authorId,
+            },
             select: {
                 id: true,
                 title: true,
@@ -69,11 +72,13 @@ const get = async (req, res) => {
 };
 
 const getId = async (req, res) => {
-    const { id } = req.params;
     try {
+        const { id } = req.params;
+        const { id: authorId } = req.user;
         const financialRecord = await prisma.financialRecord.findUnique({
             where: {
-                id: parseInt(id)
+                id: parseInt(id),
+                authorId,
             },
             select: {
                 id: true,
@@ -111,7 +116,7 @@ const update = async (req, res) => {
                 description,
                 category,
                 amount,
-                date: parse(date, 'dd-MM-yyyy', new Date()),
+                date: parseISO(date),
 
             },
         });

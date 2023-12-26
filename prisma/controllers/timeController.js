@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { format, parse } from 'date-fns';
+import { format, parse, parseISO } from 'date-fns';
 
 
 const prisma = new PrismaClient();
@@ -113,7 +113,7 @@ const update = async (req, res) => {
             },
             data: {
                 task,
-                deadline: parse(deadline, 'dd-MM-yyyy', new Date()),
+                deadline: parseISO(deadline),
                 priority,
             },
         });
