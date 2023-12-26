@@ -23,7 +23,7 @@ app.use(express.json());
 app.use('/', authRoute);
 app.use('/blog', blogRoute);
 app.use('/activity', activityRoute);
-app.use('/financial', financialRoute);
+app.use('/financialRecord', financialRoute);
 app.use('/timeManagement', timeRoute);
 app.use('/dietPlan', dietRoute);
 
