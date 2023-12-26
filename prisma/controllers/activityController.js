@@ -40,6 +40,7 @@ const get = async (req, res) => {
                 id: true,
                 title: true,
                 goal: true,
+                createdAt: true,
                 author: {
                     select: {
                         name: true,
@@ -73,6 +74,7 @@ const getId = async (req, res) => {
                 id: true,
                 title: true,
                 goal: true,
+                createdAt: true,
                 author: {
                     select: {
                         name: true,
