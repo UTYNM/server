@@ -35,12 +35,17 @@ const create = async (req, res) => {
 
 const get = async (req, res) => {
     try {
+        const { id: authorId } = req.user;
         const dietPlan = await prisma.dietPlan.findMany({
+            where: {
+                authorId,
+            },
             select: {
                 id: true,
                 mealType: true,
                 foodItem: true,
                 calories: true,
+                createdAt: true,
                 author: {
                     select: {
                         name: true,
@@ -60,16 +65,19 @@ const get = async (req, res) => {
 };
 
 const getId = async (req, res) => {
-    const { id } = req.params;
     try {
+        const { id } = req.params;
+        const { id: authorId } = req.user;
         const dietPlan = await prisma.dietPlan.findUnique({
             where: {
                 id: parseInt(id),
+                authorId,
             },
             select: {
                 id: true,
                 mealType: true,
                 foodItem: true,
+                createdAt: true,
                 calories: true,
                 author: {
                     select: {
