@@ -9,6 +9,7 @@ const get = async (req, res) => {
                 id: true,
                 title: true,
                 content: true,
+                createdAt: true,
                 image: true,
                 author: {
                     select: {
@@ -40,6 +41,7 @@ const getId = async (req, res) => {
                 title: true,
                 content: true,
                 image: true,
+                createdAt: true,
                 author: {
                     select: {
                         name: true,
