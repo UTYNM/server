@@ -18,14 +18,14 @@ const sendReminderEmail = async (task, email) => {
         from: process.env.GMAIL_USER,
         to: email,
         subject: `Reminder: Deadline for Task - ${task}`,
-        text: `Dear User,\n\nThis is a reminder for the upcoming deadline of your task: ${task}. Please complete it on time.\n\nBest regards,\nYour App Name`,
+        text: `Dear User,\n\nThis is a reminder for the upcoming deadline of your task: ${task}. Please complete it on time.\n\nBest regards,\nLifeSyncHub`,
     };
 
     await transporter.sendMail(mailOptions);
 };
 
 const scheduleReminders = () => {
-    // Memulai schedule untuk setiap jam 00:00 atau mengirim setiap jam 00:00
+    //  Mengirim setiap jam 00:00
     cron.schedule('0 0 * * *', async () => {
         try {
             const today = new Date();
