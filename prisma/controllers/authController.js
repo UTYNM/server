@@ -106,7 +106,7 @@ const login = async (req, res) => {
             },
 
             token,
-            expiresIn: '3600',
+            expiresIn: '10800',
         },
     });
 };
