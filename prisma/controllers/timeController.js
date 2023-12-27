@@ -47,6 +47,7 @@ const get = async (req, res) => {
                 task: true,
                 deadline: true,
                 priority: true,
+                createdAt: true,
                 author: {
                     select: {
                         name: true,

@@ -50,6 +50,7 @@ const get = async (req, res) => {
                 title: true,
                 description: true,
                 category: true,
+                createdAt: true,
                 amount: true,
                 date: true,
                 author: {
