@@ -47,7 +47,7 @@ model Blog {
 model Activity {
   id        Int      @id @default(autoincrement())
   title     String
-  goal      String
+  goal      String? @db.Text 
   authorId  Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
