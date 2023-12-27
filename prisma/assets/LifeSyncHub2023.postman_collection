@@ -1,0 +1,1050 @@
+{
+	"info": {
+		"_postman_id": "7d3f3ff6-6990-469a-85c8-a637c8dcd046",
+		"name": "LifeSyncHub",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30150042"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"utianum021@gmail.com\",\n  \"password\": \"12345678\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"login"
+							]
+						},
+						"description": "\nThe `POST /login` endpoint is used to authenticate a user by providing their email and password. The request should be sent with a raw body containing the user's email and password.\n\n### Request Body\n- `email` (string): The email of the user.\n- `password` (string): The password of the user.\n\n### Response\nUpon a successful authentication, the endpoint returns a status code of 200 and a JSON object with the following structure:\n```json\n{\n    \"success\": true,\n    \"data\": {\n        \"user\": {\n            \"name\": \"\",\n            \"email\": \"\",\n            \"gender\": \"\",\n            \"birthdate\": \"\"\n        },\n        \"token\": \"\",\n        \"expiresIn\": \"\"\n    }\n}\n```\n- `success` (boolean): Indicates whether the authentication was successful.\n- `data` (object): Contains user information and authentication token.\n    - `user` (object): User details including name, email, gender, and birthdate.\n    - `token` (string): Authentication token for accessing protected resources.\n    - `expiresIn` (string): Expiry duration of the authentication token.\n\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Uti Tiyanum\",\n  \"email\": \"utianum121@gmail.com\",\n  \"password\": \"12345678\",\n  \"gender\": \"male\",\n  \"birthdate\": \"21-01-2003\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"register"
+							]
+						},
+						"description": "This endpoint allows users to register by sending a POST request to the specified URL. The request should include the user's name, email, password, gender, and birthdate in the request body.\n\n### Request Body\n\n- name (text, required): The user's name.\n- email (text, required): The user's email address.\n- password (text, required): The user's chosen password.\n- gender (text, required): The user's gender.\n    \n\n### Response\n\nUpon successful registration, the endpoint returns a 200 status code with a JSON response containing a \"success\" flag set to true, and the registered user's name, email, gender, and birthdate in the \"data\" field.\n\nExample:\n\n``` json\n{\n    \"success\": true,\n    \"data\": {\n        \"name\": \"\",\n        \"email\": \"\",\n        \"gender\": \"\",\n        \"birthdate\": \"\"\n    }\n}\n\n ```"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BLOG",
+			"item": [
+				{
+					"name": "CREATE  DATA",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Manfaat Kesehatan Makanan Berwarna Hijau\",\n  \"content\": \"Sebuah penelitian terbaru yang dipublikasikan dalam Journal of Nutritional Science menunjukkan bahwa makanan berwarna hijau dapat memberikan manfaat kesehatan yang signifikan. Penelitian ini melibatkan ribuan partisipan dan menyelidiki hubungan antara konsumsi makanan berwarna hijau dan risiko penyakit kronis.\\n\\nHasil penelitian menunjukkan bahwa orang yang mengonsumsi lebih banyak sayuran hijau, seperti bayam, brokoli, dan kale, memiliki risiko lebih rendah terkena penyakit jantung, diabetes, dan beberapa jenis kanker. Nutrisi kaya antioksidan dan serat yang terkandung dalam makanan berwarna hijau diyakini berkontribusi pada manfaat kesehatan ini.\\n\\nPenelitian ini juga menyoroti pentingnya variasi dalam pola makan dan mendorong masyarakat untuk mencoba berbagai jenis sayuran hijau guna mendapatkan manfaat maksimal untuk kesehatan.\\n\\nPara peneliti berharap hasil penelitian ini dapat memberikan dorongan tambahan bagi individu untuk mengadopsi gaya hidup sehat dengan mengintegrasikan lebih banyak makanan berwarna hijau dalam pola makan sehari-hari.\",\n  \"image\": \"https://images.unsplash.com/photo-1541014597398-cd43df0833c2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/blog",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"blog"
+							]
+						},
+						"description": "This endpoint allows you to create a new blog post by sending an HTTP POST request to the specified URL. The request should include the title, content, and an optional image for the blog post.\n\n### Request Body\n\n- title (string, required): The title of the blog post.\n- content (string, required): The content of the blog post.\n- image (file, optional): An optional image to be included in the blog post.\n    \n\n### Response\n\nUpon a successful creation, the server will respond with a status code of 201 and a JSON object containing a \"success\" flag along with the data for the newly created blog post, including the title and content.\n\nExample:\n\n``` json\n{\n    \"success\": true,\n    \"data\": {\n        \"title\": \"Sample Title\",\n        \"content\": \"Sample Content\"\n    }\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "GET DATA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/blog",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"blog"
+							]
+						},
+						"description": "# Blog Retrieval\n\nThis endpoint allows you to retrieve a list of blog posts.\n\n## Request\n\n### HTTP Request\n\n`GET http://localhost:5000/blog`\n\n## Response\n\n- `success`: Indicates if the request was successful.\n- `data`: An array of blog posts containing the following fields:\n    - `id`: The unique identifier for the blog post.\n    - `title`: The title of the blog post.\n    - `content`: The content of the blog post.\n    - `createdAt`: The timestamp of when the blog post was created.\n    - `image`: The image associated with the blog post.\n\n## Example\n\n``` json\n{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 0,\n            \"title\": \"\",\n            \"content\": \"\",\n            \"createdAt\": \"\",\n            \"image\": \"\"\n        }\n    ]\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "GET DATA BY ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/blog/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"blog",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "33"
+								}
+							]
+						},
+						"description": "\nThis endpoint makes an HTTP GET request to retrieve the details of a specific blog post identified by its ID.\n\n### Request\n\n- Method: GET\n- URL: `http://localhost:5000/blog/:id`\n\n### Response\n\n- Status: 200\n- Body:\n  ```json\n  {\n      \"success\": true,\n      \"data\": {\n          \"id\": 0,\n          \"title\": \"\",\n          \"content\": \"\",\n          \"image\": \"\",\n          \"createdAt\": \"\"\n      }\n  }\n  ```\n\nThis request does not require a request body. The response returns a success status along with the details of the blog post including its ID, title, content, image, and creation timestamp.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE DATA",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Manfaat Kesehatan Makanan Berwarna Hijau \",\r\n  \"content\": \"Sebuah penelitian terbaru yang dipublikasikan dalam Journal of Nutritional Science menunjukkan bahwa makanan berwarna hijau dapat memberikan manfaat kesehatan yang signifikan. Penelitian ini melibatkan ribuan partisipan dan menyelidiki hubungan antara konsumsi makanan berwarna hijau dan risiko penyakit kronis.\\n\\nHasil penelitian menunjukkan bahwa orang yang mengonsumsi lebih banyak sayuran hijau, seperti bayam, brokoli, dan kale, memiliki risiko lebih rendah terkena penyakit jantung, diabetes, dan beberapa jenis kanker. Nutrisi kaya antioksidan dan serat yang terkandung dalam makanan berwarna hijau diyakini berkontribusi pada manfaat kesehatan ini.\\n\\nPenelitian ini juga menyoroti pentingnya variasi dalam pola makan dan mendorong masyarakat untuk mencoba berbagai jenis sayuran hijau guna mendapatkan manfaat maksimal untuk kesehatan.\\n\\nPara peneliti berharap hasil penelitian ini dapat memberikan dorongan tambahan bagi individu untuk mengadopsi gaya hidup sehat dengan mengintegrasikan lebih banyak makanan berwarna hijau dalam pola makan sehari-hari.\\n\\nSelain itu, penelitian ini juga menemukan bahwa senyawa-senyawa fitokimia dalam sayuran hijau, seperti lutein dan zeaxanthin, dapat mendukung kesehatan mata. Senyawa-senyawa ini diyakini dapat membantu mencegah degenerasi makula dan masalah mata lainnya yang terkait dengan usia.\\n\\nPara ahli nutrisi merekomendasikan agar setidaknya setengah dari piring makanan kita terdiri dari sayuran dan buah-buahan, dengan fokus khusus pada sayuran berwarna hijau untuk mendapatkan manfaat kesehatan yang optimal.\\n\\nTidak hanya itu, makanan berwarna hijau juga diketahui mengandung sejumlah besar vitamin dan mineral esensial, termasuk vitamin K, vitamin C, dan zat besi. Vitamin dan mineral ini penting untuk menjaga kesehatan tulang, sistem kekebalan tubuh, dan fungsi seluruh tubuh secara keseluruhan.\\n\\nDengan demikian, menjadikan makanan berwarna hijau sebagai bagian integral dari pola makan sehari-hari dapat menjadi langkah positif dalam upaya menjaga kesehatan dan mencegah berbagai penyakit kronis. Mari kita tingkatkan kesadaran akan pentingnya konsumsi makanan sehat, terutama sayuran berwarna hijau, untuk mencapai gaya hidup yang lebih sehat dan bugar.\",\r\n  \"image\": \"https://images.unsplash.com/photo-1541014597398-cd43df0833c2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/blog/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"blog",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "This endpoint allows you to update a specific blog post by its ID using an HTTP PUT request to the specified URL. The request should include a JSON payload in the raw request body type, with the keys \"title\", \"content\", and \"image\" to update the corresponding fields of the blog post.\n\n### Request Body\n\n- `title` (string): The new title for the blog post.\n- `content` (string): The new content for the blog post.\n- `image` (string): The new image URL for the blog post.\n    \n\n### Response\n\nUpon a successful update, the API returns a 200 status code with a JSON response containing:\n\n- `success` (boolean): Indicates whether the update was successful.\n- `message` (string): A message related to the update operation.\n- `data` (object): An object containing the updated details of the blog post, including the `id`, `title`, `content`, `image`, `createdAt`, and `updatedAt` timestamps.\n    \n\nExample Response:\n\n``` json\n{\n    \"success\": true,\n    \"message\": \"\",\n    \"data\": {\n        \"id\": 0,\n        \"title\": \"\",\n        \"content\": \"\",\n        \"image\": \"\",\n        \"createdAt\": \"\",\n        \"updatedAt\": \"\"\n    }\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE DATA",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/blog/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"blog",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "33"
+								}
+							]
+						},
+						"description": "This endpoint sends an HTTP DELETE request to [http://localhost:5000/blog/:id](http://localhost:5000/blog/:id) to delete a specific blog with the given ID.\n\nThe request does not contain a request body.\n\n### Response\n\n- Status: 200\n- Body:\n    \n    ``` json\n    {\n        \"success\": true,\n        \"message\": \"\",\n        \"data\": {\n            \"id\": 0,\n            \"title\": \"\",\n            \"content\": \"\",\n            \"image\": \"\",\n            \"createdAt\": \"\",\n            \"updatedAt\": \"\"\n        }\n    }\n    \n     ```\n    \n      \n    The response returns a success status along with an empty message. The data object contains the details of the deleted blog, including its ID, title, content, image, creation date, and last update date."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ACTIVITY",
+			"item": [
+				{
+					"name": "CREATE  DATA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJVdGkgVGl5YW51bSIsImlhdCI6MTcwMzY4NTYwMSwiZXhwIjoxNzAzNjk2NDAxfQ.a6Ad9Z3MZX1XhNKIZYEtjZUSG60TlzQD9sx7fzbh-OE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Rencana Pelatihan Pemasaran\",\n    \"goal\": \"Meningkatkan pengetahuan tim tentang strategi pemasaran digital.\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/activity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"activity"
+							]
+						},
+						"description": "\n## Add Activity\n\nThis endpoint allows you to add a new activity.\n\n### Request Body\n- `title` (string, required): The title of the activity.\n- `goal` (string, required): The goal of the activity.\n\n### Response\n- `success` (boolean): Indicates if the request was successful.\n- `data`\n  - `title` (string): The title of the activity.\n  - `goal` (string): The goal of the activity.\n  - `author` (string): The author of the activity.\n\nExample:\n```json\n{\n    \"success\": true,\n    \"data\": {\n        \"title\": \"\",\n        \"goal\": \"\",\n        \"author\": \"\"\n    }\n}\n```\n"
+					},
+					"response": []
+				},
+				{
+					"name": "GET DATA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJVdGkgVGl5YW51bSIsImlhdCI6MTcwMzY4NTYwMSwiZXhwIjoxNzAzNjk2NDAxfQ.a6Ad9Z3MZX1XhNKIZYEtjZUSG60TlzQD9sx7fzbh-OE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/activity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"activity"
+							]
+						},
+						"description": "This endpoint makes an HTTP GET request to retrieve activity data from the server. The request does not include a request body.\n\n### Response\n\nThe server responds with a status code of 200 and a JSON object containing a \"success\" key with a boolean value, and a \"data\" key with an array of activity objects. Each activity object includes an \"id\", \"title\", \"goal\", \"createdAt\", and \"author\" fields with corresponding values."
+					},
+					"response": []
+				},
+				{
+					"name": "GET DATA BY ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJVdGkgVGl5YW51bSIsImlhdCI6MTcwMzY4NTYwMSwiZXhwIjoxNzAzNjk2NDAxfQ.a6Ad9Z3MZX1XhNKIZYEtjZUSG60TlzQD9sx7fzbh-OE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/activity/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"activity",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "51"
+								}
+							]
+						},
+						"description": "This endpoint makes an HTTP GET request to retrieve activity details based on the provided ID.\n\nThe request does not contain a request body.\n\n### Response\n\n- Status: 200\n- Body:\n    \n    ``` json\n        {\n            \"success\": true,\n            \"data\": {\n                \"id\": 0,\n                \"title\": \"\",\n                \"goal\": \"\",\n                \"createdAt\": \"\",\n                \"author\": {\n                    \"name\": \"\"\n                }\n            }\n        }\n    \n     ```"
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE DATA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJVdGkgVGl5YW51bSIsImlhdCI6MTcwMzY4NTYwMSwiZXhwIjoxNzAzNjk2NDAxfQ.a6Ad9Z3MZX1XhNKIZYEtjZUSG60TlzQD9sx7fzbh-OE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Rencana Pelatihan Pemasaran Dan Strategi\",\r\n    \"goal\": \"Meningkatkan pengetahuan tim tentang strategi pemasaran digital.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/activity/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"activity",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "51"
+								}
+							]
+						},
+						"description": "This endpoint allows updating an activity with the specified ID. The request should be sent as an HTTP PUT to [http://localhost:5000/activity/:id](http://localhost:5000/activity/:id), where :id is the ID of the activity to be updated. The request body should be in raw format and include the \"title\" and \"goal\" fields.\n\n### Request Body\n\n- title (string, required): The updated title of the activity.\n- goal (string, required): The updated goal of the activity.\n    \n\n### Response\n\n- Status: 200\n- success (boolean): Indicates if the update was successful.\n- message (string): A message related to the update.\n- data (object): An object containing the updated details of the activity.\n    - id (integer): The ID of the updated activity.\n    - title (string): The updated title of the activity.\n    - goal (string): The updated goal of the activity.\n    - authorId (integer): The ID of the author of the activity.\n    - createdAt (string): The timestamp of the activity's creation.\n    - updatedAt (string): The timestamp of the activity's last update."
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE DATA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJVdGkgVGl5YW51bSIsImlhdCI6MTcwMzY4NTYwMSwiZXhwIjoxNzAzNjk2NDAxfQ.a6Ad9Z3MZX1XhNKIZYEtjZUSG60TlzQD9sx7fzbh-OE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/activity/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"activity",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "51"
+								}
+							]
+						},
+						"description": "### Delete Activity\n\nThis endpoint is used to delete a specific activity by its ID.\n\n#### Request\n\n- Method: DELETE\n- URL: `http://localhost:5000/activity/:id`\n- Path Variable\n    - `id`: The ID of the activity to be deleted.\n\n#### Response\n\n- Status: 200\n- Body:\n    \n    ``` json\n      {\n          \"success\": true,\n          \"message\": \"\",\n          \"data\": {\n              \"id\": 0,\n              \"title\": \"\",\n              \"goal\": \"\",\n              \"authorId\": 0,\n              \"createdAt\": \"\",\n              \"updatedAt\": \"\"\n          }\n      }\n    \n     ```\n    \n    - `success`: Indicates if the deletion was successful.\n    - `message`: A message related to the deletion.\n    - `data`: Object containing the details of the deleted activity, including its ID, title, goal, author ID, creation date, and last update date."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FINANCIAL RECORD",
+			"item": [
+				{
+					"name": "CREATE  DATA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJVdGkgVGl5YW51bSIsImlhdCI6MTcwMzY4NTYwMSwiZXhwIjoxNzAzNjk2NDAxfQ.a6Ad9Z3MZX1XhNKIZYEtjZUSG60TlzQD9sx7fzbh-OE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Pembelian Bahan Bakar\",\n    \"description\": \"Mengisi tangki mobil\",\n    \"category\": \"Transportasi\",\n    \"amount\": 50000,\n    \"date\": \"27-12-2023\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/financialRecord",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"financialRecord"
+							]
+						},
+						"description": "This endpoint allows you to create a new financial record by sending a POST request to the specified URL.\n\n### Request Body\n\n- title (string, required): The title of the financial record.\n- description (string, required): Description of the financial record.\n- category (string, required): Category of the financial record.\n- amount (number, required): The amount associated with the financial record.\n- date (string, required): The date of the financial record.\n    \n\n### Response\n\nUpon successful execution, the endpoint returns a 200 status code with a JSON response containing:\n\n- success (boolean): Indicates if the operation was successful.\n- data (object): An object containing the details of the created financial record, including title, description, category, amount, date, and author.\n    \n\nExample Response:\n\n``` json\n{\n    \"success\": true,\n    \"data\": {\n        \"title\": \"\",\n        \"description\": \"\",\n        \"category\": \"\",\n        \"amount\": 0,\n        \"date\": \"\",\n        \"author\": \"\"\n    }\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "GET DATA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJVdGkgVGl5YW51bSIsImlhdCI6MTcwMzY4NTYwMSwiZXhwIjoxNzAzNjk2NDAxfQ.a6Ad9Z3MZX1XhNKIZYEtjZUSG60TlzQD9sx7fzbh-OE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/financialRecord",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"financialRecord"
+							]
+						},
+						"description": "This endpoint makes an HTTP GET request to retrieve financial records. The request does not contain a request body.\n\nThe response to the last call had a status code of 200 and included a JSON object with a \"success\" key indicating the success status, and a \"data\" key containing an array of financial records. Each record in the array includes an \"id\", \"title\", \"description\", \"category\", \"createdAt\", \"amount\", \"date\", and \"author\" with a \"name\" property."
+					},
+					"response": []
+				},
+				{
+					"name": "GET DATA BY ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJVdGkgVGl5YW51bSIsImlhdCI6MTcwMzY4NTYwMSwiZXhwIjoxNzAzNjk2NDAxfQ.a6Ad9Z3MZX1XhNKIZYEtjZUSG60TlzQD9sx7fzbh-OE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/financialRecord/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"financialRecord",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "30"
+								}
+							]
+						},
+						"description": "This endpoint retrieves the financial record with the specified ID.\n\nThe response will have a status code of 200, indicating a successful request. The response body will contain a JSON object with a \"success\" key indicating the success status, and a \"data\" key containing the financial record details including ID, title, description, category, amount, date, and author information.\n\nExample response:\n\n``` json\n{\n    \"success\": true,\n    \"data\": {\n        \"id\": 0,\n        \"title\": \"\",\n        \"description\": \"\",\n        \"category\": \"\",\n        \"amount\": 0,\n        \"date\": \"\",\n        \"author\": {\n            \"name\": \"\"\n        }\n    }\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE DATA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJVdGkgVGl5YW51bSIsImlhdCI6MTcwMzY4OTcxMSwiZXhwIjoxNzAzNzAwNTExfQ.zpwjj8n_GgCIzPlZFD-NnoIaR-JHP6lQkVHQZ8Pm6MY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Pembelian Bahan Bakar\",\r\n  \"description\": \"Mengisi tangki mobil\",\r\n  \"category\": \"Transportasi\",\r\n  \"amount\": 70000,\r\n  \"date\": \"2023-12-27\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/financialRecord/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"financialRecord",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "33"
+								}
+							]
+						},
+						"description": "This endpoint allows the user to update a financial record by sending an HTTP PUT request to the specified URL with the record's ID in the path parameter. The request should include a JSON payload in the raw request body type with the fields for title, description, category, amount, and date.\n\n### Request Body\n\n- title (string): The title of the financial record.\n- description (string): Description of the financial record.\n- category (string): Category of the financial record.\n- amount (number): The amount associated with the financial record.\n- date (string): The date of the financial record.\n    \n\n### Response\n\n- success (boolean): Indicates if the update operation was successful.\n- message (string): Additional information or error message.\n- data (object): Contains the updated financial record data including its ID, title, description, category, amount, date, author ID, creation date, and last update date.\n    \n\nExample Response:\n\n``` json\n{\n    \"success\": true,\n    \"message\": \"\",\n    \"data\": {\n        \"id\": 0,\n        \"title\": \"\",\n        \"description\": \"\",\n        \"category\": \"\",\n        \"amount\": 0,\n        \"date\": \"\",\n        \"authorId\": 0,\n        \"createdAt\": \"\",\n        \"updatedAt\": \"\"\n    }\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE DATA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJVdGkgVGl5YW51bSIsImlhdCI6MTcwMzY4NTYwMSwiZXhwIjoxNzAzNjk2NDAxfQ.a6Ad9Z3MZX1XhNKIZYEtjZUSG60TlzQD9sx7fzbh-OE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/financialRecord/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"financialRecord",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "31"
+								}
+							]
+						},
+						"description": "This endpoint makes an HTTP DELETE request to delete a financial record with the specified ID. The request should be sent to [http://localhost:5000/financialRecord/:id](http://localhost:5000/financialRecord/:id), where :id is the ID of the financial record to be deleted.\n\nThe request does not have a request body, and the response will have a status code of 200 if the deletion is successful. The response will include a JSON object with the keys \"success\", \"message\", and \"data\". The \"success\" key will indicate if the deletion was successful, and the \"data\" key will contain the details of the deleted financial record, including its ID, title, description, category, amount, date, author ID, creation timestamp, and update timestamp.\n\nExample response:\n\n``` json\n{\n    \"success\": true,\n    \"message\": \"\",\n    \"data\": {\n        \"id\": 0,\n        \"title\": \"\",\n        \"description\": \"\",\n        \"category\": \"\",\n        \"amount\": 0,\n        \"date\": \"\",\n        \"authorId\": 0,\n        \"createdAt\": \"\",\n        \"updatedAt\": \"\"\n    }\n}\n\n ```"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TIME MANAGEMENT",
+			"item": [
+				{
+					"name": "CREATE  DATA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJVdGkgVGl5YW51bSIsImlhdCI6MTcwMzY4NTYwMSwiZXhwIjoxNzAzNjk2NDAxfQ.a6Ad9Z3MZX1XhNKIZYEtjZUSG60TlzQD9sx7fzbh-OE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"task\": \"Meeting with Team\",\n    \"deadline\": \"29-12-2023\",\n    \"priority\": \"High\"\n}\n\n\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/timeManagement",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"timeManagement"
+							]
+						},
+						"description": "This endpoint allows you to manage time-related tasks by creating a new task with details such as task name, deadline, and priority.\n\n### Request Body\n\n- `task` (string, required): The name of the task.\n- `deadline` (string, required): The deadline for the task.\n- `priority` (string, required): The priority level of the task.\n    \n\n### Response\n\n- Status: 201\n- `success` (boolean): Indicates if the request was successful.\n- `data` (object): Contains the details of the created task, including task name, deadline, priority, and author.\n    \n\nExample response:\n\n``` json\n{\n    \"success\": true,\n    \"data\": {\n        \"task\": \"\",\n        \"deadline\": \"\",\n        \"priority\": \"\",\n        \"author\": \"\"\n    }\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "GET DATA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJVdGkgVGl5YW51bSIsImlhdCI6MTcwMzY4NTYwMSwiZXhwIjoxNzAzNjk2NDAxfQ.a6Ad9Z3MZX1XhNKIZYEtjZUSG60TlzQD9sx7fzbh-OE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/timeManagement",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"timeManagement"
+							]
+						},
+						"description": "This endpoint makes an HTTP GET request to retrieve time management data. The request does not require a request body.\n\n### Response\n\n- Status: 200\n- Body:\n    \n    ``` json\n    {\n        \"success\": true,\n        \"data\": [\n            {\n                \"id\": 0,\n                \"task\": \"\",\n                \"deadline\": \"\",\n                \"priority\": \"\",\n                \"createdAt\": \"\",\n                \"author\": {\n                    \"name\": \"\"\n                }\n            }\n        ]\n    }\n    \n     ```\n    \n      \n    The response returns a success status along with an array of time management data, including task details, deadlines, priorities, creation timestamps, and author names."
+					},
+					"response": []
+				},
+				{
+					"name": "GET DATA BY ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJVdGkgVGl5YW51bSIsImlhdCI6MTcwMzY4NTYwMSwiZXhwIjoxNzAzNjk2NDAxfQ.a6Ad9Z3MZX1XhNKIZYEtjZUSG60TlzQD9sx7fzbh-OE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/timeManagement/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"timeManagement",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "49"
+								}
+							]
+						},
+						"description": "\nThis endpoint retrieves time management details for a specific ID.\n\nThe request does not require a request body.\n\n### Response\n- Status: 200\n- Body:\n    ```json\n    {\n        \"success\": true,\n        \"data\": {\n            \"id\": 0,\n            \"task\": \"\",\n            \"deadline\": \"\",\n            \"priority\": \"\",\n            \"author\": {\n                \"name\": \"\"\n            }\n        }\n    }\n    ```\n"
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE DATA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJVdGkgVGl5YW51bSIsImlhdCI6MTcwMzY4OTcxMSwiZXhwIjoxNzAzNzAwNTExfQ.zpwjj8n_GgCIzPlZFD-NnoIaR-JHP6lQkVHQZ8Pm6MY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"task\": \"Meeting with Team & CEO\",\r\n    \"deadline\": \"2023-12-30\",\r\n    \"priority\": \"Lowww\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/timeManagement/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"timeManagement",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "50"
+								}
+							]
+						},
+						"description": "This endpoint allows you to update a specific time management task by its ID using an HTTP PUT request.\n\n### Request Body\n\n- `task` (string): The task to be updated.\n- `deadline` (string): The deadline of the task.\n- `priority` (string): The priority of the task.\n    \n\n#### Example\n\n``` json\n{\n    \"task\": \"Sample Task\",\n    \"deadline\": \"2023-12-31\",\n    \"priority\": \"High\"\n}\n\n ```\n\n### Response\n\n- Status: 200 OK\n- `success` (boolean): Indicates if the update was successful.\n- `message` (string): Additional information about the update.\n- `data` (object): Updated task details including ID, task, deadline, priority, author ID, creation timestamp, and last update timestamp.\n    \n\n#### Example\n\n``` json\n{\n    \"success\": true,\n    \"message\": \"\",\n    \"data\": {\n        \"id\": 0,\n        \"task\": \"Sample Task\",\n        \"deadline\": \"2023-12-31\",\n        \"priority\": \"High\",\n        \"authorId\": 0,\n        \"createdAt\": \"\",\n        \"updatedAt\": \"\"\n    }\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE DATA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJVdGkgVGl5YW51bSIsImlhdCI6MTcwMzY4NTYwMSwiZXhwIjoxNzAzNjk2NDAxfQ.a6Ad9Z3MZX1XhNKIZYEtjZUSG60TlzQD9sx7fzbh-OE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/timeManagement/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"timeManagement",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "49"
+								}
+							]
+						},
+						"description": "This endpoint sends an HTTP DELETE request to [http://localhost:5000/timeManagement/:id](http://localhost:5000/timeManagement/:id) to delete a specific time management task.\n\nThe request does not contain a request body.\n\n### Response\n\n- Status: 200\n- Body:\n    \n    ``` json\n      {\n          \"success\": true,\n          \"mesagge\": \"\",\n          \"data\": {\n              \"id\": 0,\n              \"task\": \"\",\n              \"deadline\": \"\",\n              \"priority\": \"\",\n              \"authorId\": 0,\n              \"createdAt\": \"\",\n              \"updatedAt\": \"\"\n          }\n      }\n    \n     ```\n    \n      \n    The response returns a success status along with the details of the deleted task."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DIET PLAN",
+			"item": [
+				{
+					"name": "CREATE  DATA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJVdGkgVGl5YW51bSIsImlhdCI6MTcwMzY4NTYwMSwiZXhwIjoxNzAzNjk2NDAxfQ.a6Ad9Z3MZX1XhNKIZYEtjZUSG60TlzQD9sx7fzbh-OE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"mealType\": \"Breakfast\",\n      \"foodItem\": \"Oatmeal with berries\",\n      \"calories\": 300\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/dietPlan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"dietPlan"
+							]
+						},
+						"description": "This endpoint allows you to create a new diet plan by making an HTTP POST request to the specified URL. The request should include the meal type, food item, and calories in the request body.\n\n### Request Body\n\n- mealType (string, required): The type of meal in the diet plan.\n- foodItem (string, required): The item of food included in the diet plan.\n- calories (integer, required): The number of calories in the food item.\n    \n\n### Response\n\nUpon successful creation of the diet plan, the endpoint will return a 201 status code with a JSON response containing the success status and the details of the created diet plan, including the meal type, food item, calories, and author.\n\nExample:\n\n``` json\n{\n    \"success\": true,\n    \"data\": {\n        \"mealType\": \"\",\n        \"foodItem\": \"\",\n        \"calories\": 0,\n        \"author\": \"\"\n    }\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "GET DATA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJVdGkgVGl5YW51bSIsImlhdCI6MTcwMzY4NTYwMSwiZXhwIjoxNzAzNjk2NDAxfQ.a6Ad9Z3MZX1XhNKIZYEtjZUSG60TlzQD9sx7fzbh-OE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/dietPlan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"dietPlan"
+							]
+						},
+						"description": "\nThis endpoint makes an HTTP GET request to retrieve a diet plan. The response will have a status of 200 if successful, and it will include an array of diet plan data. Each diet plan item in the array contains an ID, meal type, food item, calories, creation date, and the author's name. The \"success\" key indicates whether the request was successful or not.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "GET DATA BY ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJVdGkgVGl5YW51bSIsImlhdCI6MTcwMzY4NTYwMSwiZXhwIjoxNzAzNjk2NDAxfQ.a6Ad9Z3MZX1XhNKIZYEtjZUSG60TlzQD9sx7fzbh-OE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/dietPlan/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"dietPlan",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "21"
+								}
+							]
+						},
+						"description": "This endpoint makes an HTTP GET request to retrieve a diet plan by its ID.\n\n### Request\n\n- Endpoint: `http://localhost:5000/dietPlan/:id`\n- Method: `GET`\n    \n\n### Response\n\n- Status: 200\n- Body:\n    \n    ``` json\n      {\n          \"success\": true,\n          \"data\": {\n              \"id\": 0,\n              \"mealType\": \"\",\n              \"foodItem\": \"\",\n              \"createdAt\": \"\",\n              \"calories\": 0,\n              \"author\": {\n                  \"name\": \"\"\n              }\n          }\n      }\n    \n     ```\n    \n\nAdd documentation."
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE DATA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJVdGkgVGl5YW51bSIsImlhdCI6MTcwMzY4NTYwMSwiZXhwIjoxNzAzNjk2NDAxfQ.a6Ad9Z3MZX1XhNKIZYEtjZUSG60TlzQD9sx7fzbh-OE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"mealType\": \"Breakfast\",\r\n      \"foodItem\": \"Oatmeal with berries\",\r\n      \"calories\": 450\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/dietPlan/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"dietPlan",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "21"
+								}
+							]
+						},
+						"description": "This endpoint allows you to update a specific diet plan by its ID using an HTTP PUT request to the specified URL. The request should include a payload in the raw request body type with parameters for meal type, food item, and calories.\n\n### Request Body\n\n- `mealType`: (string) The type of meal.\n- `foodItem`: (string) The name of the food item.\n- `calories`: (number) The number of calories.\n    \n\n### Response\n\nUpon a successful update, the endpoint returns a status code of 200 along with a JSON response containing the following fields:\n\n- `success`: (boolean) Indicates the success of the operation.\n- `message`: (string) Additional information or error message.\n- `data`: (object) An object containing the updated diet plan details, including the ID, meal type, food item, calories, author ID, creation timestamp, and update timestamp.\n    \n\nExample Response:\n\n``` json\n{\n    \"success\": true,\n    \"message\": \"\",\n    \"data\": {\n        \"id\": 0,\n        \"mealType\": \"\",\n        \"foodItem\": \"\",\n        \"calories\": 0,\n        \"authorId\": 0,\n        \"createdAt\": \"\",\n        \"updatedAt\": \"\"\n    }\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE DATA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJVdGkgVGl5YW51bSIsImlhdCI6MTcwMzY4NTYwMSwiZXhwIjoxNzAzNjk2NDAxfQ.a6Ad9Z3MZX1XhNKIZYEtjZUSG60TlzQD9sx7fzbh-OE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/dietPlan/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"dietPlan",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "21"
+								}
+							]
+						},
+						"description": "# Delete Diet Plan\n\nThis endpoint is used to delete a specific diet plan by its ID.\n\n## Request\n\n- Method: DELETE\n- URL: `http://localhost:5000/dietPlan/:id`\n    \n\n## Response\n\n- Status: 200\n- Body:\n    \n    ``` json\n    {\n        \"success\": true,\n        \"message\": \"\",\n        \"data\": {\n            \"id\": 0,\n            \"mealType\": \"\",\n            \"foodItem\": \"\",\n            \"calories\": 0,\n            \"authorId\": 0,\n            \"createdAt\": \"\",\n            \"updatedAt\": \"\"\n        }\n    }\n    \n     ```\n    \n\n## Sample\n\n```\ncurl -X DELETE \"http://localhost:5000/dietPlan/:id\"\n\n ```"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
