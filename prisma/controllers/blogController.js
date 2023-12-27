@@ -11,11 +11,7 @@ const get = async (req, res) => {
                 content: true,
                 createdAt: true,
                 image: true,
-                author: {
-                    select: {
-                        name: true,
-                    },
-                },
+               
             },
         });
         res.status(200).json({
@@ -42,11 +38,6 @@ const getId = async (req, res) => {
                 content: true,
                 image: true,
                 createdAt: true,
-                author: {
-                    select: {
-                        name: true,
-                    },
-                },
             },
         });
         res.status(200).json({
@@ -62,14 +53,14 @@ const getId = async (req, res) => {
 };
 const create = async (req, res) => {
     const { title, content, image } = req.body;
-    const { id: authorId, name } = req.user;
+  
     try {
         const blog = await prisma.blog.create({
             data: {
                 title,
                 content,
                 image,
-                authorId,
+            
             },
         });
 
@@ -78,7 +69,7 @@ const create = async (req, res) => {
             data: {
                 title: blog.title,
                 content: blog.content,
-                author: name,
+                
             },
         });
     } catch (error) {
